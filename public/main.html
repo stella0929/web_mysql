@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Hidden Camera Detection</title>
+		<link href="./semantic.min.css" rel="stylesheet">
+		<script src="./jquery.min.js"></script>
+		<script src="./semantic.min.js"></script>
+		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css'>
+		<link rel="stylesheet prefetch"
+			  href="./icon.min.css">
+		<link rel="stylesheet" href="./mycss.css">
+	</head>
+
+	<body>
+		<div class="parent" style=" display:flex">
+			<h1 id="title" style="color:black;flex: 3">Hidden Camera Detection</h1>	
+			<div class="ui mini horizontal divided list" style="flex: 1;margin: 68px 0px 60px 200px">
+  				<div class="item" OnClick="location.href = 'adduser.html'">
+					<div class="content">
+					<div class="header">sign up</div>
+					</div>
+  				</div>
+  				<div class="item" OnClick="location.href = 'login.html'">
+    				<div class="content">
+					<div class="header">login</div>
+					</div>
+				</div>
+			</div>
+			<div  class="search" style="flex: 1">
+				<div class="ui icon input">
+					<input onkeyup="filter()" type="text" id="value">
+					<i class="search icon"></i>
+				</div>
+				<div class="results"></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="ui inverted menu">
+  			<a href="main.html" class="active item">Home</a>
+  			<a class="item" OnClick="clickFrequentPlaceTab()">Frequent place</a>
+		</div>
+		<div class="list">
+			<div class="myitem" OnClick="location.href = './ewhaStation.html'" >
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">이대역
+				<br><br><br>
+				서울 마포구 신촌로 180</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">신촌역
+				<br><br><br>
+				서울 마포구 신촌로 90</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">왕십리역
+				<br><br><br>
+				서울 성동구 왕십리로 300</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">잠실역
+				<br><br><br>
+				서울 송파구 올림픽로 265</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">강남역
+				<br><br><br>
+				서울 강남구 강남대로 396</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">강변역
+				<br><br><br>
+				광진구 강변역로 53</p>
+			</div>
+			<div class="myitem" OnClick="location.href = 'adduser.html'">
+				<img src="./station.png" width="100px" height="100px">
+				<p class="name">신도림역
+				<br><br><br>
+				서울 구로구 새말로 117-21</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+      		function filter(){
+				var value, name, item, i;
+				value = document.getElementById("value").value.toUpperCase();
+				console.dir(value);
+				item = document.getElementsByClassName("myitem");
+				console.dir(item);
+
+				for(i=0;i<item.length;i++){
+					name=item[i].getElementsByClassName("name");
+					console.dir(name[0]);
+					if(name[0].innerHTML.toUpperCase().indexOf(value) > -1)
+					{
+						item[i].style.display = "flex";
+					}
+					else{
+						item[i].style.display = "none";
+					}
+				}
+			}
+	
+		</script>
+	</body>	
+</html>
+
+
+

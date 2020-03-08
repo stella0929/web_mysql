@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Hidden Camera Detection</title>
+		<link href="./semantic.min.css" rel="stylesheet">
+		<script src="./jquery.min.js"></script>
+		<script src="./semantic.min.js"></script>
+		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css'>
+		<link rel="stylesheet" href="./mycss.css">
+	</head>
+	<body>
+		<div class="parent" style=" display:flex">
+			<h1 id="title" style="color:black;flex:3">Hidden Camera Detection</h1>	
+			<div class="ui mini horizontal divided list" style="flex: 1;margin: 68px 0px 60px 200px">
+  				<div class="item" OnClick="location.href = 'adduser.html'">
+					<div class="content">
+					<div class="header">sign up</div>
+					</div>
+  				</div>
+  				<div class="item" OnClick="location.href = 'login.html'">
+    				<div class="content">
+					<div class="header">login</div>
+					</div>
+				</div>
+			</div>
+			<div  class="search" style="flex: 1">
+				<div class="ui icon input">
+					<input onkeyup="filter()" type="text" id="value">
+					<i class="search icon"></i>
+				</div>
+				<div class="results"></div>
+			</div>
+		</div>
+		<br><br>
+		<div class="ui inverted menu">
+  			<a href="main.html" class="active item">Home</a>
+  			<a class="item" OnClick="clickFrequentPlaceTab()">Frequent place</a>
+		</div>
+		<br><br><br>
+		<div class="loginbox" style="position: absolute;top: 70%;left: 50%; border:solid 3px gray;width: 500px;height:300px; margin-left:-250px; margin-top: -150px;display: flex;flex-direction: column;justify-content: center;background-color: #FFFFFF">
+			<h3 style="align-self: center">login</h3><br>
+			<form action="/process/adduser" method="post" class="form" >
+				<div style="margin-left: 70px">
+					<label>아이디&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<div class="ui input">
+  						<input style="width: 270px" type="text" >
+					</div>
+				</div>
+				<br>
+				<div style="margin-left:57px">
+					<label>비밀번호&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<div class="ui input">
+  						<input style="width: 270px" type="password">
+					</div>
+				</div>
+				<br>
+					<button class="ui button" style="margin-left: 200px;width: 100px">
+  						회원가입
+					</button>
+				</form>
+		</div>
+	</body>
+</html>
