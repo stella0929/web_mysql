@@ -39,6 +39,10 @@
   			<a class="item" OnClick="clickFrequentPlaceTab()">Frequent place</a>
 		</div>
 		
+		<%	var number = <%= number %> %>
+		<%	for(var i=0;i<number;i++){ %>
+		<h1>stallNumber= <%= rows %>[i].stallNumber</h1>
+		<%	} %>
 		
 	</body>
 </html>

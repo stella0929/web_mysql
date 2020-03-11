@@ -13,27 +13,35 @@ var expressSession = require('express-session');
 
 //에러 헨들러 모듈 사용
 var expressErrorHandler = require('express-error-handler');
-
+const hostname ='211.47.75.53';
 
 var config = require('./config');
 //암호화 모듈
-var database_loader = require('./database/database_loader');
 
 var route_loader = require('./routes/route_loader');
-
+var fs = require('fs');
 var app = express();
 console.log('config.server_port ->'+config.server_port);
 app.set('port', config.server_port || 3000);
-app.use('/public',static(path.join(__dirname,'/public')));
+app.set("view engine","ejs");
+app.use('/',static(path.join(__dirname,'/public')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(expressSession({
-	secret: 'my key',
-	resave: true, 
-	saveuninstalized: true
-}));
+//app.use(expressSession({
+//	secret: 'my key',
+//	resave: true, 
+//	saveuninstalized: true
+//}));
+app.get('/', function(req, res) {
+	
 
+	fs.readFile('./public/main.html',function(error,data){	
+		if(error){console.dir(error); return;}
+		res.writeHead(200, {'Content-Type':'text/html'});
+		res.end(data);});
+	
+});
 
 route_loader.init(app,express.Router());
 
@@ -46,10 +54,8 @@ var errorHandler = expressErrorHandler({
 
 app.use(expressErrorHandler.httpError(404));
 app.use(errorHandler);
-
-http.createServer(app).listen(app.get('port'),function(){
+//app.get('port')
+http.createServer(app).listen(3000,function(){
 	console.log('익스프레스로 웹 서버를 실행함: '+app.get('port'));
-	
-	//database_loader.init(app,config);
 	
 });

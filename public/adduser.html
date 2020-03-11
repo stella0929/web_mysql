@@ -41,25 +41,25 @@
 		<br><br><br>
 		<div class="loginbox" style="position: absolute;top: 70%;left: 50%; border:solid 3px gray;width: 500px;height:300px; margin-left:-250px; margin-top: -150px;display: flex;flex-direction: column;justify-content: center;background-color: #FFFFFF">
 			<h3 style="align-self: center">Sign up</h3><br>
-			<form action="/process/login" method="post" class="form" >
+			<form action="/process/adduser" method="post" class="form" >
 				<div style="margin-left: 70px">
 					<label>아이디&nbsp;&nbsp;&nbsp;&nbsp;</label>
 					<div class="ui input">
-  						<input style="width: 270px" type="text" >
+  						<input name="id" style="width: 270px" type="text" >
 					</div>
 				</div>
 				<br>
 				<div style="margin-left:57px">
 					<label>비밀번호&nbsp;&nbsp;&nbsp;&nbsp;</label>
 					<div class="ui input">
-  						<input style="width: 270px" type="password">
+  						<input name="password" style="width: 270px" type="password">
 					</div>
 				</div>
 				<br>
 				<div style="margin-left:27px">
-					<label>비밀번호 확인&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<label> 이름 &nbsp;&nbsp;&nbsp;&nbsp;</label>
 					<div class="ui input">
-  						<input style="width: 270px" type="password">
+  						<input name="name" style="width: 270px" type="password">
 					</div>
 				</div>
 				<br>

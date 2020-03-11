@@ -86,44 +86,6 @@ var adduser = function(req, res){
 };
 
 
-var listuser = function(req,res){
-	console.log('/process/listuser 라우팅 함수 호출됨');
-	var database = req.app.get('database');
-	if(database){
-		database.UserModel.findAll(function(err, results){
-			if(err){
-				console.log('에러 발생');
-			    res.writeHead(200,{"Content-Type":"text/html;charset=utf8"});
-				res.write('<h1>에러 발생</h1>');
-				res.end();
-				return;
-		}
-			if(results){
-				console.dir(results);
-				
-			res.writeHead(200,{"Content-Type":"text/html;charset=utf8"});
-				res.write("<h2>사용자 리스트</h2>");
-				res.write("<div><ul>");
-				for(var i =0; i<results.length;i++){
-					var curId = results[i]._doc.id;
-					var curName = results[i]._doc.name;
-					res.write("     <li>#"+i+"->"+curId+","+curName+"</li>");
-			}
-				res.write("</ul></div>");
-				res.end();
-		}
-			else{console.log('에러 발생');
-		res.writeHead(200,{"Content-Type":"text/html;charset=utf8"});
-		res.write('<h1>조회된 사용자 없음</h1>');
-		res.end();}
-});
-}
-	else{console.log('에러 발생');
-		res.writeHead(200,{"Content-Type":"text/html;charset=utf8"});
-		res.write('<h1>데이터베이스 연결 안됨.</h1>');
-		res.end();}
-		
-};
 var authUser = function(db, id, password, callback){
 	console.log('authUser 호출됨'+id+','+password);
 	
@@ -168,4 +130,3 @@ module.exports.login = login;
 
 module.exports.adduser = adduser;
 
-module.exports.listuser = listuser;

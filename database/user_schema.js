@@ -13,7 +13,7 @@ Schema.createSchema = function(mongoose){
 		hashed_password: {type:String, required: true,'default':''},
 		salt:{type:String, required:true},
 		name: {type: String,index:'hashed', 'default':''}//name으로 검색을 하겠다.(index)
-		,age: {type:Number,'default':-1},//값을 넣지 않았을때 -1
+		,
 		created_at: {type:Date, index:{unique:false}, 'default':Date.now()},
 		updated_at:{type:Date, index:{unique:false}, 'default':Date.now()}
 	});
