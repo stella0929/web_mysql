@@ -37,7 +37,7 @@ pool.getConnection(function(err,conn){
 					console.log(rows[i].stallNumber+rows[i].safety+rows[i].updated_at);
 					//res.send((rows[i].stallNumber+rows[i].safety+rows[i].updated_at));
 		
-				res.render('public/ewhawomansunistation',{number : i, rows : rows});
+				res.render('ewhaStation',{number : rows.length, rows : JSON.stringify(rows)});
 			}
 			}else{
 				console.log('찾지 못함');

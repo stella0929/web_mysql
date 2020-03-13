@@ -23,8 +23,12 @@ var fs = require('fs');
 var app = express();
 console.log('config.server_port ->'+config.server_port);
 app.set('port', config.server_port || 3000);
-app.set("view engine","ejs");
-app.use('/',static(path.join(__dirname,'/public')));
+var engine = require('ejs-locals');
+app.engine('ejs',engine);
+app.set('view engine', 'ejs'); 
+
+
+app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
