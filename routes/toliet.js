@@ -6,7 +6,7 @@
 
 var pool = require('../database/database_loader');
 var ewhawomansunistation = function(req,res){
-	console.log('/process/ewhawomansunistation 라우팅 함수 호출됨');
+	console.log('/ewhawomansunistation 라우팅 함수 호출됨');
 	
 	
 pool.getConnection(function(err,conn){
@@ -37,7 +37,7 @@ pool.getConnection(function(err,conn){
 					console.log(rows[i].stallNumber+rows[i].safety+rows[i].updated_at);
 					//res.send((rows[i].stallNumber+rows[i].safety+rows[i].updated_at));
 		
-				res.render('ewhaStation',{number : rows.length, rows : JSON.stringify(rows)});
+				res.render('ewhaStation',{number : rows.length, rows :rows});
 			}
 			}else{
 				console.log('찾지 못함');

@@ -8,10 +8,10 @@ var mysql = require('mysql');
 //데이타베이스 연결 sql문실행가능
 var pool=mysql.createPool({
 	connectionLimit:10
-	,host:'localhost'
-	,user:'root'
-	,password:'sm060788'
-	,database:'test'
+	,host:'211.47.75.102'
+	,user:'medi0719'
+	,password:'unisunis661!'
+	,database:'dbmedi0719'
 	,debug:false
 });
 

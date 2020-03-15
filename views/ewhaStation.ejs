@@ -37,7 +37,7 @@
 		</div>
 		<br><br>
 		<div class="ui inverted menu">
-  			<a href="/main.html" class="active item">Home</a>
+  			<a href="/" class="active item">Home</a>
   			<a class="item" OnClick="clickFrequentPlaceTab()">Frequent place</a>
 		</div>
 		<br><br>
@@ -55,40 +55,45 @@
     			</tr>
   			</thead>
   			<tbody>
-				<script>
-				var number = <%=number%>
-				var rows = <%-rows%>
-				for(var i=0;i<number;i++){
+				<%
+					function pad(n, width) {
+				n = n + '';
+				return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+				}
+					function formatdate(date){
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+  					var day = date.getDate();
+					var hh = date.getHours();
+					var mm = date.getMinutes();
+					var ss = date.getSeconds();
+					return year+"-"+pad(month,2)+"-"+pad(day,2)+" "+pad(hh,2)+":"+pad(mm,2)+":"+pad(ss,2)
+				}
+				for(var i=0;i<rows.length;i++){
 				var stallNumber= rows[i].stallNumber
 				var safety = rows[i].safety
-				var updated_at = rows[i].updated_at.replace(/T/,' ').replace(/\..+/,'')
+				var updated_at = formatdate(rows[i].updated_at)
+				
+			
+			
 		if(safety=="안전"){
-					document.write("<tr>")
-					document.write("<td>")
-					document.write(stallNumber)
-					document.write("</td>")
-					document.write("<td class=\"positive\">")
-					document.write(safety)
-					document.write("</td>")
-					document.write("<td>")
-					document.write(updated_at)
-					document.write("</td>")
-					document.write("</tr>")
-		}
-					else{
-				   document.write("<tr>")
-					document.write("<td>")
-					document.write(stallNumber)
-					document.write("</td>")
-					document.write("<td  class=\"negative\">")
-					document.write(safety)
-					document.write("</td>")
-					document.write("<td>")
-					document.write(updated_at)
-					document.write("</td>")
-					document.write("</tr>")	
-					}}
-				</script>
+			%>
+				
+				<tr>
+					<td><%=stallNumber%></td>
+					<td class="positive"><%=safety%></td>
+					<td><%=updated_at%></td>
+				</tr>
+			
+		<%} 
+					else{ %>
+				<tr>
+					<td><%=stallNumber%></td>
+					<td class="negative"><%=safety%></td>
+					<td><%=updated_at%></td>
+				</tr>
+					<%}}
+				%>
   			</tbody>
 		</table>
 	
